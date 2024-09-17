@@ -4,6 +4,9 @@
         <meta charset="utf-8">
         <title>Веб-разработчик</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -15,6 +18,12 @@
                         <li><a href="#technologies">Технологии</a></li>
                     </ul>
                 </nav>
+
+                <div class="author-info">
+                    <h1>Иванов Иван Иванович</h1>
+                    <a class="btn btn-white" href="mailto:example@mail.ru">Написать мне</a>
+                </div>
+
             </div>
         </header>
 
@@ -24,14 +33,17 @@
                     <h2>Обо мне</h2>
 
                     <figure class="avatar">
-                        <img scr="images/person.png" alt="Person">
+                        <img src="images/spyder.png" alt="Person">
                     </figure>
 
                     <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                        <span>Lorem</span> ipsum dolor sit amet consectetur, adipisicing elit. 
                         Dicta eius incidunt amet ducimus ipsam, nihil labore accusantium? 
                         Quas corporis nostrum maxime, porro, ea nisi hic doloremque laborum, ducimus itaque harum!
                     </p>
+
+                    <a class="btn" href="about.html">Подробнее</a>
+
                 </section>
 
                 <section id="skills">
@@ -56,6 +68,32 @@
                         <li>CSS</li>
                         <li>JavaScript</li>
                     </ul>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Название</th>
+                                <th>Степень владения</th>
+                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td>HTML</td>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>CSS</td>
+                                    <td>7</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>JavaScript</td>
+                                    <td>5</td>
+                                </tr>
+                            </tbody>
+                        </thead>
+                    </table>
+
                 </section>
             </div>
         </main>
