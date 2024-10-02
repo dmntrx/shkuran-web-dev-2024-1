@@ -91,6 +91,7 @@ footer {
 
 .menu-item:hover button {
     background-color: rgb(5, 15, 29);
+    color: white;
 }
 
 .dish-img img {
