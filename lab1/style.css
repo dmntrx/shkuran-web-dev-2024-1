@@ -10,6 +10,10 @@ header {
     font-weight: bold;
 }
 
+body {
+    margin: 0;
+}
+
 .main-menu ul {
     margin: 0;
     list-style: none;
