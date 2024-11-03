@@ -95,6 +95,26 @@ footer {
     color: white;
 }
 
+/* изменение размера при нажатии */
+.menu-item:active button{
+    background-color: rgb(5, 15, 29);
+    color: white;
+    transform: scale(1.03);
+}
+
+/* анимация пульсации */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .dish-img img {
     margin-top: 20px;
     border-radius: 35px;
