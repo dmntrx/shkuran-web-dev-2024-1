@@ -1,0 +1,119 @@
+* {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+header {
+    padding: 20px 0;
+    font-weight: bold;
+}
+
+body {
+    margin: 0;
+}
+
+.main-menu ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+.main-menu li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.main-menu a {
+    color: black;
+    text-decoration: none;
+}
+
+.main-menu a:hover {
+    color: orangered;
+}
+
+/* img {
+    height: 450px;
+    width: auto;
+    text-align: center;
+} */
+
+figure {
+    margin: 0;
+    text-align: center;
+}
+
+figure img {
+    max-width: 70%;
+    height: auto;
+    display: block; /* убираем пробелы снизу и сверху */
+    /* margin: 0 auto; центрируем изображение внутри figure */
+}
+
+p {
+    text-align: justify;
+    padding: 0 5px;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th, td {
+    padding: 5px;
+    border: 1px solid black;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+.container {
+    max-width: 75%;
+    margin: 0 20px;
+}
+
+.main-menu {
+    display: flex;
+    justify-content: flex-start; /* выравниваются по левому краю */
+  }
+  
+  @media (max-width: 800px) {
+    .main-menu {
+      justify-content: space-around;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .main-menu {
+      flex-direction: column;
+      align-items: center; 
+    }
+  }
+
+
+  /* (.main-content) */
+
+  /* .container {
+    width: 100%; 
+    padding: 20px; 
+  }
+  
+  @media (max-width: 800px) {
+    .container {
+      padding: 15px; 
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .container {
+      padding: 10px;
+    }
+  }
+   */
