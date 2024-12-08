@@ -67,17 +67,21 @@ footer {
     margin: 0 20px;
 }
 
-
+.filter {
+    margin-left: 50px;
+    margin-bottom: 10px;
+}
 
 .menu-category-text {
     margin-left: 50px;
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 .menu-item {
     display: flex;
     flex-flow: column wrap;
+    margin-bottom: 20px;
     width: 300px;
     max-height: 550px;
     border: 2px solid transparent;
@@ -95,6 +99,26 @@ footer {
     color: white;
 }
 
+/* изменение размера при нажатии */
+.menu-item:active button{
+    background-color: rgb(5, 15, 29);
+    color: white;
+    transform: scale(1.03);
+}
+
+/* анимация пульсации */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .dish-img img {
     margin-top: 20px;
     border-radius: 35px;
@@ -105,6 +129,7 @@ footer {
 
 .menu-item-container {
     margin: auto;
+    margin-top: 20px;
     max-width: 980px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -147,16 +172,20 @@ footer {
     flex: 1;
     max-width: 250px;
     font-size: 100%;
+    font-weight: 500;
+    margin: 0;
 }
 
 .price {
     font-size: 100%;
+    margin-bottom: 7px;
+    font-weight: 400;
 }
 
-.dish-mass {
+.dish-weight {
     margin-top: 10px;
     font-size: 80%;
-    color: gray;
+    color: rgb(69, 69, 69);
 }
 
 .btn{
@@ -203,11 +232,18 @@ form {
     margin-bottom: 5px;
   }
 
+  .checkbox {
+    margin-top: 3px;
+  }
+
   select, input, textarea {
     width: 60%;
     padding: 8px;
     margin-bottom: 20x;
     box-sizing: border-box;
+    border: none;
+    border-radius: 14px;
+    background-color: #d5d3d3;
   }
   
   input[type="checkbox"],
@@ -220,14 +256,43 @@ form {
 
   button {
     padding: 10px 20px;
-    margin-top: 10px;
     cursor: pointer;
+    border: none;
+    border-radius: 14px;
   }
+
+  button:hover {
+    background-color: #d5d3d3;
+}
+
+  .btn-filter {
+    padding: 10px 20px;
+    margin: 2px;
+    cursor: pointer;
+    border: none;
+    border-radius: 14px;
+  }
+
+  .btn-filter:hover {
+    background-color: #b4d6b5;
+}
+
+.btn-filter.active {
+    background-color: #b4d6b5;
+}
+
 
   fieldset {
     width: 60%;
-    padding: 10px;
     margin-top: 15px;
     box-sizing: border-box;
-    border: 1px solid #ccc;
+    border: none !important;
   }
+
+  strong {
+    font-weight: 500; 
+  }
+  
+.total-price {
+    font-weight: 500;
+}
