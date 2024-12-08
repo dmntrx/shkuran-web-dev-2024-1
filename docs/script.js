@@ -213,3 +213,96 @@ document.querySelector('button[type="reset"]').addEventListener('click', () => {
   // скрываем итоговую стоимость
   totalPriceElement.hidden = true;
 });
+
+
+
+document.querySelector("form").addEventListener("submit", function (event) {
+  event.preventDefault(); // предотвращаем отправку формы
+
+  const errors = [];
+
+  // const selectedDishes = {
+  //   soup: document.querySelector('input[name="soup"]:checked') ? true : null,
+  //   main: document.querySelector('input[name="main"]:checked') ? true : null,
+  //   salads: document.querySelector('input[name="salads"]:checked') ? true : null,
+  //   drink: document.querySelector('input[name="drink"]:checked') ? true : null,
+  //   dessert: document.querySelector('input[name="dessert"]:checked') ? true : null
+  // };
+
+  // Проверка на то, выбрано ли хотя бы одно блюдо
+  const isAnyDishSelected = Object.values(selectedDishes).some(dish => dish !== null);
+
+  if (!isAnyDishSelected) {
+    errors.push("Ничего не выбрано. Выберите блюда для заказа");
+  } else {
+    // Проверка на соответствие одному из возможных вариантов комбо
+    const isValidCombo =
+      (selectedDishes.soup && selectedDishes.main && selectedDishes.salads && selectedDishes.drink) || // суп главное блюдо салат напиток
+      (selectedDishes.soup && selectedDishes.main && selectedDishes.drink) || // суп главное блюдо напиток
+      (selectedDishes.soup && selectedDishes.salads && selectedDishes.drink) || // суп салат напиток
+      (selectedDishes.main && selectedDishes.salads && selectedDishes.drink) || // главное блюдо салат напиток
+      (selectedDishes.main && selectedDishes.drink) || // главное блюдо напиток
+      (selectedDishes.dessert); // десерт
+
+    if (!isValidCombo) {
+      errors.push("Неправильный выбор. Пожалуйста, выберите блюда согласно одному из предложенных вариантов.");
+    } else {
+      // Проверка на напиток, если все блюда выбраны
+      if (Object.values(selectedDishes).every(dish => dish !== null) && !selectedDishes.drink) {
+        errors.push("Выберите напиток");
+      }
+
+      // Проверка на обязательные блюда, если суп выбран
+      if (selectedDishes.soup && !(selectedDishes.main || selectedDishes.salads)) {
+        errors.push("Выберите главное блюдо/салат/стартер");
+      }
+
+      // Проверка на обязательные блюда, если салат/стартер выбран
+      if (selectedDishes.salads && !(selectedDishes.soup || selectedDishes.main)) {
+        errors.push("Выберите суп или главное блюдо");
+      }
+
+      // Проверка на обязательное главное блюдо, если выбран напиток
+      if (selectedDishes.drink && !selectedDishes.main) {
+        errors.push("Выберите главное блюдо");
+      }
+
+      // Проверка для десерта
+      if (!selectedDishes.dessert && (selectedDishes.soup || selectedDishes.main || selectedDishes.salads || selectedDishes.drink)) {
+        errors.push("Выберите десерт");
+      }
+    }
+  }
+
+  // Если ошибки есть, показываем первую ошибку
+  if (errors.length > 0) {
+    showNotification(errors[0]);
+  } else {
+    // Если ошибок нет, заказ оформляется
+    alert("Заказ успешно оформлен!");
+    this.submit(); // теперь форма отправляется только если ошибок нет
+  }
+});
+
+function showNotification(message) {
+  // Удаляем предыдущее уведомление, если оно есть
+  const existingNotification = document.querySelector(".notification");
+  if (existingNotification) existingNotification.remove();
+
+  // Создаем новое уведомление
+  const notification = document.createElement("div");
+  notification.className = "notification";
+  notification.innerHTML = `
+    <p>${message}</p>
+    <button class="close-btn">Окей</button>
+  `;
+
+  // Добавляем уведомление на страницу
+  document.body.appendChild(notification);
+
+  // Логика закрытия уведомления
+  const closeButton = notification.querySelector(".close-btn");
+  closeButton.addEventListener("click", () => {
+    notification.remove();
+  });
+}

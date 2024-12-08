@@ -40,6 +40,16 @@ img {
     text-align: center;
 }
 
+.icon {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.icon:hover {
+    transform: translateY(-5px) scale(1.1);
+  }
+
 p {
     text-align: left;
     padding: 0 5px;
@@ -62,20 +72,45 @@ footer {
     margin-top: auto;
 }
 
+.combo-container {
+    margin: auto;
+    margin-top: 20px;
+    max-width: 980px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.lunch-option {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border: none;
+    font-size: 13px;
+}
+
 .container {
     max-width: 75%;
     margin: 0 20px;
 }
 
+.combo-dish {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .filter {
     margin-left: 50px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .menu-category-text {
     margin-left: 50px;
     margin-top: 40px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .menu-item {
@@ -296,3 +331,41 @@ form {
 .total-price {
     font-weight: 500;
 }
+
+
+.notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* гарантирует, что уведомление выше всех других элементов */
+    background-color: rgba(255, 255, 255, 0.95); /* полупрозрачный фон */
+    padding: 20px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 80%; /* чтобы уведомление не выходило за края экрана */
+    word-wrap: break-word; /* перенос длинных слов */
+  }
+  
+  .notification p {
+    margin: 0 0 10px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .notification .close-btn {
+    display: inline-block;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .notification .close-btn:hover {
+    background-color: #555;
+    color: #fff;
+  }
+  
